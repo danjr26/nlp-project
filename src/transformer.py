@@ -75,11 +75,13 @@ def create_model(receptive_field, dims, alphabet_size):
 	char_embedding = Embedding(alphabet_size, dims)(char_input)
 
 	attn0 = char_embedding
-	attn1 = AttentionPlus(4, dims)(attn0)
-	attn2 = AttentionPlus(4, dims)(attn1)
-	attn3 = AttentionPlus(4, dims)(attn2)
-	attn4 = AttentionPlus(4, dims)(attn3)
-	attn_final = attn4
+	attn1 = AttentionPlus(8, dims)(attn0)
+	attn2 = AttentionPlus(8, dims)(attn1)
+	attn3 = AttentionPlus(8, dims)(attn2)
+	attn4 = AttentionPlus(8, dims)(attn3)
+	attn5 = AttentionPlus(8, dims)(attn4)
+	attn6 = AttentionPlus(8, dims)(attn5)
+	attn_final = attn6
 
 	conv = Convolution1D(alphabet_size, receptive_field)(attn_final)
 	flatten = Flatten()(conv)
