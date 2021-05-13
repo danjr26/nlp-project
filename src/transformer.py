@@ -93,7 +93,7 @@ def perplexity(y_true, y_pred):
 	return 2**tf.keras.losses.categorical_crossentropy(y_true, y_pred)
 
 def main():
-	train_corpus = load_corpus("data/train-mini.txt")
+	train_corpus = load_corpus("data/train.txt")
 	
 	alphabet = derive_alphabet(train_corpus)
 	alphabet_dict = {c: n for n, c in enumerate(alphabet)}
