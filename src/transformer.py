@@ -24,7 +24,7 @@ def preprocess(s:list, alphabet_dict:dict, receptive_field:int):
 		yield s[i:i+receptive_field], index_to_one_hot(s[i+receptive_field], len(alphabet_dict))
 
 def data_from_corpus(corpus, alphabet_dict, receptive_field):
-	batch_size = 16
+	batch_size = 64
 	xs = []
 	ys = []
 	for s in corpus:
