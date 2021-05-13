@@ -103,7 +103,7 @@ def main():
 	model = create_model(receptive_field, dims, len(alphabet))
 	model.summary()
 	model.build((receptive_field))
-	model.compile(loss=tf.keras.losses.CategoricalCrossentropy(), optimizer=tf.keras.optimizers.Adam(learning_rate=0.003), metrics=[perplexity])
+	model.compile(loss=tf.keras.losses.CategoricalCrossentropy(), optimizer=tf.keras.optimizers.Adam(learning_rate=0.0001), metrics=[perplexity])
 
 	model.fit(data_from_corpus(train_corpus, alphabet_dict, receptive_field))
 	tf.keras.models.save_model(model, 'transformer_model')
