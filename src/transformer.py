@@ -81,7 +81,7 @@ def create_model(receptive_field, dims, alphabet_size):
 	attn4 = AttentionPlus(4, dims)(attn3)
 	attn_final = attn4
 
-	conv = Convolution1D(dims, receptive_field)(attn_final)
+	conv = Convolution1D(alphabet_size, receptive_field)(attn_final)
 	flatten = Flatten()(conv)
 	dense = Dense(alphabet_size)(flatten)
 	softmax = Softmax()(dense)
