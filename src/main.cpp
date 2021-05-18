@@ -154,7 +154,7 @@ int main(int argc, char *argv[]) {
     utf::write_utf8(c, std::cout);
     std::cout << std::endl;
   }
-  CustomNetModel model(5, alphabet);
+  CustomNetModel model(16, alphabet);
   // model.add_combo_node(6, U'e', 7, U' ');
   // model.add_combo_node(6, U't', 7, U' ');
   // model.add_combo_node(6, U'e', 7, U'a');
@@ -165,18 +165,18 @@ int main(int argc, char *argv[]) {
   // model.add_combo_node(6, U'k', 7, U' ');
   // model.add_combo_node(6, U'x', 7, U' ');
   // model.add_combo_node(6, U'x', 7, U'k');
-  // NGramModel model(1, get_corpus_alphabet(trainCorpus));
+  // NGramModel model(5, get_corpus_alphabet(trainCorpus));
   train(model, trainCorpus, valCorpus);
 
   {
-    // string32_t s = generate_random(model, 30000);
+    string32_t s = generate_random(model, 30000);
     ofstream8_t ofs;
     ofs.open("out.txt");
     // model.desc_input(ofs);
     // model.desc_combo(ofs, 1);
-    // for (char32_t c : s) {
-    //   utf::write_utf8(c, ofs);
-    // }
+    for (char32_t c : s) {
+      utf::write_utf8(c, ofs);
+    }
     ofs.close();
   }
 
