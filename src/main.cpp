@@ -154,7 +154,7 @@ int main(int argc, char *argv[]) {
     utf::write_utf8(c, std::cout);
     std::cout << std::endl;
   }
-  // CustomNetModel model(16, alphabet);
+  CustomNetModel model(16, alphabet);
   // model.add_combo_node(6, U'e', 7, U' ');
   // model.add_combo_node(6, U't', 7, U' ');
   // model.add_combo_node(6, U'e', 7, U'a');
@@ -165,7 +165,7 @@ int main(int argc, char *argv[]) {
   // model.add_combo_node(6, U'k', 7, U' ');
   // model.add_combo_node(6, U'x', 7, U' ');
   // model.add_combo_node(6, U'x', 7, U'k');
-  NGramModel model(5, get_corpus_alphabet(trainCorpus));
+  // NGramModel model(5, get_corpus_alphabet(trainCorpus));
   train(model, trainCorpus, valCorpus);
 
   {
